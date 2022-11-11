@@ -148,7 +148,7 @@ graph_offset = Vector2( -242, 18 )
 [sub_resource type="RectangleShape2D" id=19]
 extents = Vector2( 17.2086, 27.363 )
 
-[node name="Knight" type="KinematicBody2D"]
+[node name="Knight" type="KinematicBody2D" groups=["Player"]]
 collision_mask = 8
 script = ExtResource( 34 )
 __meta__ = {
@@ -182,7 +182,7 @@ script = ExtResource( 2 )
 texture = ExtResource( 1 )
 hframes = 12
 vframes = 6
-frame = 9
+frame = 7
 
 [node name="Area2D" type="Area2D" parent="Sprite"]
 position = Vector2( 9.44942, 19.8438 )
