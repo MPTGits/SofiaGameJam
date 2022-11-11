@@ -1,0 +1,208 @@
+[gd_scene load_steps=25 format=2]
+
+[ext_resource path="res://Assets/Sprites/Characters/Knight/all_in_one/all_in_one.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Utils/AnimationTree.gd" type="Script" id=2]
+[ext_resource path="res://Character/MoveComponenta.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Character/DashEffect.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scripts/Character/Knight.gd" type="Script" id=34]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 16.8145, 22.3202 )
+
+[sub_resource type="Animation" id=2]
+length = 0.3
+step = 0.02
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.06, 0.12, 0.18, 0.24 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 36, 37, 38, 39, 40 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite/Area2D/Sword:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.12, 0.24 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "OnAttackAnimationFinish"
+} ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 1.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.7
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 24, 25, 26, 27, 28, 29, 30 ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 12, 13, 14, 15, 16, 17, 18, 19 ]
+}
+
+[sub_resource type="AnimationNodeAnimation" id=6]
+animation = "attack"
+
+[sub_resource type="AnimationNodeAnimation" id=7]
+animation = "idle"
+
+[sub_resource type="AnimationNodeAnimation" id=8]
+animation = "jump"
+
+[sub_resource type="AnimationNodeAnimation" id=9]
+animation = "walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=10]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=11]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=12]
+advance_condition = "IsMoving"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=13]
+advance_condition = "NotMoving"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=14]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=15]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=16]
+
+[sub_resource type="AnimationNodeStateMachine" id=17]
+states/attack/node = SubResource( 6 )
+states/attack/position = Vector2( 50, 74 )
+states/idle/node = SubResource( 7 )
+states/idle/position = Vector2( 50, 171 )
+states/jump/node = SubResource( 8 )
+states/jump/position = Vector2( -97, 171 )
+states/walk/node = SubResource( 9 )
+states/walk/position = Vector2( 50, 260 )
+transitions = [ "idle", "attack", SubResource( 10 ), "attack", "idle", SubResource( 11 ), "idle", "walk", SubResource( 12 ), "walk", "idle", SubResource( 13 ), "jump", "idle", SubResource( 14 ), "idle", "jump", SubResource( 15 ), "jump", "attack", SubResource( 16 ) ]
+start_node = "idle"
+graph_offset = Vector2( -242, 18 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=18]
+
+[sub_resource type="RectangleShape2D" id=19]
+extents = Vector2( 17.2086, 27.363 )
+
+[node name="Knight" type="KinematicBody2D"]
+collision_mask = 8
+script = ExtResource( 34 )
+__meta__ = {
+"_edit_horizontal_guides_": [  ]
+}
+
+[node name="PlayerBody" type="CollisionShape2D" parent="."]
+position = Vector2( -20, 23 )
+shape = SubResource( 1 )
+
+[node name="MoveComponenta" parent="." instance=ExtResource( 3 )]
+ground_acc = 0.7
+ground_friction = 0.3
+
+[node name="Anim" type="AnimationPlayer" parent="."]
+anims/attack = SubResource( 2 )
+anims/idle = SubResource( 3 )
+anims/jump = SubResource( 4 )
+anims/walk = SubResource( 5 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 17 )
+anim_player = NodePath("../Anim")
+active = true
+parameters/playback = SubResource( 18 )
+parameters/conditions/IsMoving = false
+parameters/conditions/NotMoving = false
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+hframes = 12
+vframes = 6
+frame = 9
+
+[node name="Area2D" type="Area2D" parent="Sprite"]
+position = Vector2( 9.44942, 19.8438 )
+collision_layer = 2
+collision_mask = 4
+
+[node name="Sword" type="CollisionShape2D" parent="Sprite/Area2D"]
+position = Vector2( 17, 0 )
+shape = SubResource( 19 )
+disabled = true
+
+[node name="AttackTimer" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
+
+[node name="SwordHitPoint" type="Position2D" parent="."]
+position = Vector2( 52.4867, 0 )
+
+[node name="DashEffect" parent="." instance=ExtResource( 4 )]
+sprite_owner = NodePath("../Sprite")
+move_component = NodePath("../MoveComponenta")
+
+[connection signal="body_entered" from="Sprite/Area2D" to="." method="_on_Area2D_body_entered"]
