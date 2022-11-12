@@ -1,47 +1,42 @@
 extends Control
 
-signal OnDead
+var healthBarStates = ["res://Assets/User Interface/HealthBar/1.png",
+					"res://Assets/User Interface/HealthBar/2.png",
+					"res://Assets/User Interface/HealthBar/3.png",
+					"res://Assets/User Interface/HealthBar/4.png",
+					"res://Assets/User Interface/HealthBar/5.png",
+					"res://Assets/User Interface/HealthBar/6.png",
+					"res://Assets/User Interface/HealthBar/7.png",
+					"res://Assets/User Interface/HealthBar/8.png",
+					"res://Assets/User Interface/HealthBar/9.png",
+					"res://Assets/User Interface/HealthBar/10.png"]
 
-onready var healthOver = $HealthOver
-onready var healthUnder = $HealthUnder
+signal OnDead
 
 export (float) var max_health = 100.0
 var currentHealth = max_health
 
-export (Color) var healthyColor = Color.green
-export (Color) var cautionColor = Color.yellow
-export (Color) var dangerColor = Color.red
-
-export (float, 0, 1, 0.05) var cautionZone = 0.5
-export (float, 0, 1, 0.05) var dangerZone = 0.25
-
-var isDead = false
-
-func GetCurrentHealth():
-	return healthOver.value
-		
 func _physics_process(_delta):
 	currentHealth = min(currentHealth, max_health)
 	
-	healthOver.value = currentHealth / max_health
-	healthUnder.value = lerp(healthUnder.value, healthOver.value, 0.05)
-	RefreshHealthColor()
+	RefreshHealthSprite()
 	
 func TakeDamage(damage):
 	currentHealth = currentHealth - damage
 	
+	var tween = get_tree().create_tween()
+	tween.tween_property($TextureRect, "modulate", Color.black, 0.15)
+	tween.tween_property($TextureRect, "modulate", Color.white, 0.15)
+	tween.play()
+
 	if currentHealth <= 0:
-		isDead = true
+		currentHealth = 0
 		set_physics_process(false)
 		emit_signal("OnDead")
-		hide()
-	else:
-		RefreshHealthColor()
+		RefreshHealthSprite()
 	
-func RefreshHealthColor():
-	if currentHealth < max_health * dangerZone:
-		healthOver.tint_progress = dangerColor
-	elif currentHealth < max_health * cautionZone:
-		healthOver.tint_progress = cautionColor
-	else:
-		healthOver.tint_progress = healthyColor
+func RefreshHealthSprite():
+	var index = int(currentHealth / 10 - 1)
+	if index < 0:
+		index = 0
+	$TextureRect.texture = load(healthBarStates[index])

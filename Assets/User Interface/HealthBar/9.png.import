@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Repeated.png-d78cf4033ccd29cc64ba3287bb3a633b.stex"
+path="res://.import/9.png-6516edadba36a75d09bc138872c7ca94.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Backgrounds/03/Repeated.png"
-dest_files=[ "res://.import/Repeated.png-d78cf4033ccd29cc64ba3287bb3a633b.stex" ]
+source_file="res://Assets/User Interface/HealthBar/9.png"
+dest_files=[ "res://.import/9.png-6516edadba36a75d09bc138872c7ca94.stex" ]
 
 [params]
 

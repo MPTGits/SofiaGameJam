@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Layer02.png-3652c3b207af99efc9597ea58081b691.stex"
+path="res://.import/2.png-6540cdb8308449c57552f9f9f584265e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Backgrounds/03/Layer02.png"
-dest_files=[ "res://.import/Layer02.png-3652c3b207af99efc9597ea58081b691.stex" ]
+source_file="res://Assets/User Interface/HealthBar/2.png"
+dest_files=[ "res://.import/2.png-6540cdb8308449c57552f9f9f584265e.stex" ]
 
 [params]
 
