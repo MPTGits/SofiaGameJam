@@ -1,0 +1,179 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://Assets/User Interface/bg01.png" type="Texture" id=1]
+[ext_resource path="res://Assets/User Interface/prj01.png" type="Texture" id=2]
+[ext_resource path="res://Assets/User Interface/RibonTitle.png" type="Texture" id=3]
+[ext_resource path="res://Assets/User Interface/RightArrow.png" type="Texture" id=4]
+[ext_resource path="res://Assets/User Interface/prj02.png" type="Texture" id=5]
+[ext_resource path="res://Assets/User Interface/prj08.png" type="Texture" id=6]
+[ext_resource path="res://Assets/User Interface/LeftArrow.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Fonts/Jupiter-Pro.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://Assets/User Interface/prj05.png" type="Texture" id=9]
+[ext_resource path="res://Assets/User Interface/StoreBtn.png" type="Texture" id=10]
+[ext_resource path="res://Menus/Store.gd" type="Script" id=11]
+[ext_resource path="res://Menus/Item.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Menus/MoneyPanel.tscn" type="PackedScene" id=13]
+
+[sub_resource type="DynamicFont" id=1]
+size = 48
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 8 )
+
+[sub_resource type="StyleBoxTexture" id=6]
+texture = ExtResource( 7 )
+region_rect = Rect2( 0, 0, 94, 145 )
+
+[sub_resource type="StyleBoxTexture" id=5]
+texture = ExtResource( 7 )
+region_rect = Rect2( 0, 0, 94, 145 )
+modulate_color = Color( 0.427451, 0.713726, 0.741176, 1 )
+
+[sub_resource type="StyleBoxTexture" id=3]
+texture = ExtResource( 7 )
+region_rect = Rect2( 0, 0, 94, 145 )
+
+[sub_resource type="StyleBoxTexture" id=4]
+texture = ExtResource( 4 )
+region_rect = Rect2( 0, 0, 94, 145 )
+
+[sub_resource type="StyleBoxTexture" id=7]
+texture = ExtResource( 4 )
+region_rect = Rect2( 0, 0, 94, 145 )
+modulate_color = Color( 0.427451, 0.713726, 0.741176, 1 )
+
+[sub_resource type="StyleBoxTexture" id=8]
+texture = ExtResource( 10 )
+region_rect = Rect2( 0, 0, 112, 112 )
+
+[sub_resource type="StyleBoxTexture" id=9]
+texture = ExtResource( 10 )
+region_rect = Rect2( 0, 0, 112, 112 )
+modulate_color = Color( 0.882353, 0.705882, 0.101961, 1 )
+
+[node name="Inventory" type="Control"]
+script = ExtResource( 11 )
+
+[node name="Background" type="TextureRect" parent="."]
+margin_right = 1920.0
+margin_bottom = 1080.0
+texture = ExtResource( 1 )
+expand = true
+
+[node name="Label" type="Sprite" parent="."]
+position = Vector2( 1002, 142 )
+texture = ExtResource( 3 )
+
+[node name="Tittle" type="Label" parent="Label"]
+margin_left = -310.0
+margin_top = -64.0
+margin_right = 309.0
+margin_bottom = 46.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "STORE"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Items" type="Control" parent="."]
+margin_left = 20.0
+margin_top = 280.0
+margin_right = 20.0
+margin_bottom = 280.0
+grow_horizontal = 2
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Item" parent="Items" instance=ExtResource( 12 )]
+margin_left = 250.0
+margin_right = 597.0
+title = "Fast Bullet"
+item_sprite = ExtResource( 2 )
+damage = 0.5
+speed = 1.5
+
+[node name="Item2" parent="Items" instance=ExtResource( 12 )]
+margin_left = 610.0
+margin_right = 957.0
+title = "Blood Bullet"
+item_sprite = ExtResource( 6 )
+damage = 1.5
+speed = 1.0
+price = 100.0
+
+[node name="Item3" parent="Items" instance=ExtResource( 12 )]
+margin_left = 970.0
+margin_right = 1317.0
+title = "Double Bullet"
+item_sprite = ExtResource( 5 )
+damage = 1.25
+speed = 1.25
+price = 200.0
+
+[node name="Item4" parent="Items" instance=ExtResource( 12 )]
+margin_left = 1330.0
+margin_right = 1677.0
+title = "Lazer Bullet"
+item_sprite = ExtResource( 9 )
+damage = 2.0
+speed = 1.5
+price = 2000.0
+
+[node name="TextureRectLeft" type="Sprite" parent="."]
+position = Vector2( 120.75, 540.812 )
+scale = Vector2( 0.849823, 0.964557 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 283, 1118.39 )
+
+[node name="LeftArrow" type="Button" parent="."]
+margin_left = 90.0
+margin_top = 450.0
+margin_right = 210.0
+margin_bottom = 610.0
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/normal = SubResource( 3 )
+
+[node name="TextureRectRight" type="Sprite" parent="."]
+light_mask = 0
+position = Vector2( 1830, 541.5 )
+scale = Vector2( 0.814815, 0.968582 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 2123.76, 4.56253, 216.72, 1114.07 )
+
+[node name="RightArrow" type="Button" parent="."]
+margin_left = 1753.0
+margin_top = 450.0
+margin_right = 1873.0
+margin_bottom = 610.0
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/normal = SubResource( 4 )
+
+[node name="TweenyItems" type="Tween" parent="."]
+
+[node name="MoneyPanel" parent="." instance=ExtResource( 13 )]
+
+[node name="BackBtn" type="Button" parent="."]
+margin_left = 1722.0
+margin_top = 73.0
+margin_right = 1794.0
+margin_bottom = 129.0
+custom_styles/hover = SubResource( 8 )
+custom_styles/pressed = SubResource( 9 )
+custom_styles/normal = SubResource( 8 )
+
+[connection signal="pressed" from="LeftArrow" to="." method="_on_LeftArrow_pressed"]
+[connection signal="pressed" from="RightArrow" to="." method="_on_RightArrow_pressed"]
+[connection signal="tween_completed" from="TweenyItems" to="." method="_on_TweenyHboxContainer_tween_completed"]
+[connection signal="pressed" from="BackBtn" to="." method="_on_BackBtn_pressed"]

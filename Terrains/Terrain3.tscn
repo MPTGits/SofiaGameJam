@@ -1,0 +1,87 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Terrains/BaseTerrain.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Platform/Terain/2.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Platform/Terain/8.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Platform/Terain/7.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Platform/Terain/6.png" type="Texture" id=11]
+[ext_resource path="res://Enemies/BaseEnemies.tscn" type="PackedScene" id=12]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ null, null, null, null, null, null ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="Terrain3" instance=ExtResource( 1 )]
+__meta__ = {
+"_edit_vertical_guides_": [  ]
+}
+
+[node name="TextureRect" parent="." index="0"]
+margin_left = 653.0
+margin_top = 804.0
+margin_right = 3002.0
+margin_bottom = 1082.0
+texture = ExtResource( 2 )
+
+[node name="CreateNextScene" parent="." index="1"]
+position = Vector2( 2993, 938 )
+scale = Vector2( 0.949999, 14.125 )
+
+[node name="DeleteTerrain" parent="." index="2"]
+position = Vector2( 1500, 1002 )
+scale = Vector2( 150.2, 7.5 )
+
+[node name="LeftWater" type="AnimatedSprite" parent="." index="3"]
+position = Vector2( 329, 1022 )
+scale = Vector2( 0.833333, 1 )
+frames = SubResource( 1 )
+frame = 2
+playing = true
+
+[node name="Position2D" parent="." index="4"]
+position = Vector2( 3002, 1003 )
+
+[node name="TextureRect2" type="TextureRect" parent="." index="5"]
+margin_left = 869.0
+margin_top = 241.0
+margin_right = 1096.0
+margin_bottom = 333.0
+texture = ExtResource( 9 )
+
+[node name="TextureRect3" type="TextureRect" parent="." index="6"]
+margin_left = 2763.0
+margin_top = 667.0
+margin_right = 2907.0
+margin_bottom = 802.0
+texture = ExtResource( 11 )
+
+[node name="TextureRect4" type="TextureRect" parent="." index="7"]
+margin_left = 2093.0
+margin_top = 319.0
+margin_right = 2237.0
+margin_bottom = 938.0
+texture = ExtResource( 10 )
+expand = true
+
+[node name="BaseEnemy" parent="." index="8" instance=ExtResource( 12 )]
+position = Vector2( 980, 210 )
+Speed = 500
+
+[node name="BaseEnemy2" parent="." index="9" instance=ExtResource( 12 )]
+position = Vector2( 2832, 644 )
+Speed = 1500
+attackType = "normal"
+
+[node name="CollisionShape2D" parent="BaseEnemy2/Area2D" index="0"]
+position = Vector2( -1011.5, -30.5 )
+
+[node name="BaseEnemy3" parent="." index="10" instance=ExtResource( 12 )]
+position = Vector2( 2167, 289 )
+Speed = 1200
+attackType = "normal"
+
+[editable path="BaseEnemy2"]
