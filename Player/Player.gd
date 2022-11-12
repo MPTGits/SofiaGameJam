@@ -5,13 +5,15 @@ export(float, 0, 1) var friction = 0.03
 export(float) var speed = 550.0
 export(float) var gravity = 10.0
 
+onready var GRENADE = preload("res://Projectiles/Grenade.tscn")
+
 var m_velocity = Vector2()
 var m_smokeScaleCoeff = 0.0
 
 func _physics_process(delta):
 	var desired_velocity = Vector2.ZERO
 	
-	if Globals.onFlyButtonPressed:
+	if Input.is_action_pressed("ui_fly"):
 		m_smokeScaleCoeff = min(m_smokeScaleCoeff + delta, 1.0)
 		desired_velocity.y -= 1
 	else:
@@ -36,3 +38,12 @@ func HandleSmokeAnim():
 
 func TakeDamage(damage):
 	$PlayerUI.HealthBar.TakeDamage(damage)
+
+func _input(event):
+	if event.is_action_pressed("ui_attack"):
+		var grenade = GRENADE.instance()
+		grenade.set_as_toplevel(true)
+		get_tree().get_root().add_child(grenade)
+		grenade.Init($WeaponShooting.global_position, false)
+		
+		Globals.CreateExplosionAnim($WeaponShooting.global_position, "shooting")

@@ -10,4 +10,7 @@ func init(anim_name):
 	scale.y *= rand_range(0.85, 1.15)
 	speed_scale = rand_range(0.9, 1.1)
 	
+	if anim_name == "explosion":
+		scale = Vector2(0.1,0.1)
+		
 	play(anim_name)

@@ -22,7 +22,7 @@ func _process(delta):
 	
 	
 func Init(pos, owner, typeAttack, Speed, toRight = true):
-	CreateExplosionAnim(pos, "shooting")
+	Globals.CreateExplosionAnim(pos, "shooting")
 	position = pos
 	attackType = typeAttack
 	speed = Speed
@@ -44,19 +44,10 @@ func Init(pos, owner, typeAttack, Speed, toRight = true):
 		set_collision_layer_bit(2, true)
 		set_collision_mask_bit(1, true)
 		set_collision_mask_bit(3, true)
-	
-func CreateExplosionAnim(position, name):
-	var explosion = OnHit.instance()
-	explosion.position = position
-	explosion.position.x += rand_range(-5, 5)
-	explosion.position.y += rand_range(-5, 5)
-	explosion.init(name)
-	
-	get_tree().get_root().add_child(explosion)
 
 func _on_RocketProjectile_body_entered(body):
 	body.TakeDamage(Damage)
 	
-	CreateExplosionAnim($HitPosition.global_position, "hit")
+	Globals.CreateExplosionAnim($HitPosition.global_position, "hit")
 	
 	queue_free()
