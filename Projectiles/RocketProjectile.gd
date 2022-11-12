@@ -1,6 +1,7 @@
 extends Area2D
 
 onready var OnHit = preload("res://Animations/HitAnim.tscn")
+
 var speed = 0
 export var Damage = 20
 var attackType = ""

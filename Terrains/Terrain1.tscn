@@ -34,3 +34,4 @@ position = Vector2( 2349, 1015 )
 
 [node name="BaseEnemy" parent="." index="5" instance=ExtResource( 4 )]
 position = Vector2( 1053, 227 )
+attackType = "grenade"

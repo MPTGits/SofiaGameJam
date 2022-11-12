@@ -8,4 +8,4 @@ func _on_VisibilityNotifier2D_screen_entered():
 
 
 func _on_DeleteTerrain_screen_exited():
-	queue_free()
+	queue_free() 

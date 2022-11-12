@@ -21,7 +21,6 @@ func GetCurrentHealth():
 	return healthOver.value
 		
 func _physics_process(_delta):
-#	currentHealth += (bodyStats.HealthRegenPerSec.Value * delta)
 	currentHealth = min(currentHealth, max_health)
 	
 	healthOver.value = currentHealth / max_health
@@ -29,8 +28,6 @@ func _physics_process(_delta):
 	RefreshHealthColor()
 	
 func TakeDamage(damage):
-#	var bodyStats = get_parent().bodyStats
-#	damage *= (1.0 - bodyStats.DamageReduction.Value)
 	currentHealth = currentHealth - damage
 	
 	if currentHealth <= 0:

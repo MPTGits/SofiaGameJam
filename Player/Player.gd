@@ -44,6 +44,6 @@ func _input(event):
 		var grenade = GRENADE.instance()
 		grenade.set_as_toplevel(true)
 		get_tree().get_root().add_child(grenade)
-		grenade.Init($WeaponShooting.global_position, false)
+		grenade.Init($WeaponShooting.global_position, false, self, null)
 		
 		Globals.CreateExplosionAnim($WeaponShooting.global_position, "shooting")

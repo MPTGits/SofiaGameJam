@@ -39,7 +39,6 @@ scale = Vector2( 150.2, 7.5 )
 position = Vector2( 329, 1022 )
 scale = Vector2( 0.833333, 1 )
 frames = SubResource( 1 )
-frame = 2
 playing = true
 
 [node name="Position2D" parent="." index="4"]
@@ -70,18 +69,19 @@ expand = true
 [node name="BaseEnemy" parent="." index="8" instance=ExtResource( 12 )]
 position = Vector2( 980, 210 )
 Speed = 500
+attackType = "grenade"
 
 [node name="BaseEnemy2" parent="." index="9" instance=ExtResource( 12 )]
 position = Vector2( 2832, 644 )
 Speed = 1500
-attackType = "normal"
+attackType = "grenade"
 
-[node name="CollisionShape2D" parent="BaseEnemy2/Area2D" index="0"]
-position = Vector2( -1011.5, -30.5 )
+[node name="CollisionShape2D" parent="BaseEnemy2/AttackArea" index="0"]
+position = Vector2( -677, -198.5 )
 
 [node name="BaseEnemy3" parent="." index="10" instance=ExtResource( 12 )]
 position = Vector2( 2167, 289 )
 Speed = 1200
-attackType = "normal"
+attackType = "grenade"
 
 [editable path="BaseEnemy2"]
