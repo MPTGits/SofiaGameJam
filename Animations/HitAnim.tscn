@@ -45,7 +45,7 @@ animations = [ {
 
 [node name="HitAnim" type="AnimatedSprite"]
 scale = Vector2( 0.4, 0.4 )
-z_index = 1
+z_index = 10
 frames = SubResource( 1 )
 animation = "explosion"
 script = ExtResource( 8 )

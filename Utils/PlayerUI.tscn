@@ -25,6 +25,7 @@ margin_bottom = 92.0
 rect_scale = Vector2( 2, 2 )
 
 [node name="ShopBtn" type="Button" parent="."]
+visible = false
 margin_left = 1722.0
 margin_top = 73.0
 margin_right = 1794.0
