@@ -4,7 +4,7 @@
 [ext_resource path="res://Assets/Platform/Terrain/asset-3.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Platform/Terrain/asset-4.png" type="Texture" id=3]
 [ext_resource path="res://Enemies/BaseEnemies.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Assets/Platform/Terain/3.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Platform/Terrain/platform.png" type="Texture" id=5]
 [ext_resource path="res://Terrains/Bilbord.tscn" type="PackedScene" id=6]
 
 [node name="Terrain1" instance=ExtResource( 1 )]
@@ -15,9 +15,9 @@ scale = Vector2( 0.7, 0.7 )
 
 [node name="TextureRect" parent="." index="1"]
 margin_left = 3.0
-margin_top = 954.0
+margin_top = 940.0
 margin_right = 2352.0
-margin_bottom = 1394.0
+margin_bottom = 1380.0
 texture = ExtResource( 5 )
 
 [node name="CreateNextScene" parent="." index="2"]
