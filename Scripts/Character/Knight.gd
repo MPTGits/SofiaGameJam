@@ -21,6 +21,7 @@ func _physics_process(delta):
 	if Input.is_action_pressed("ui_right"):
 		$AnimatedSprite.flip_h = true
 		$AnimatedSprite.offset.x = -40
+		
 
 		
 func OnAttackAnimationFinish():
