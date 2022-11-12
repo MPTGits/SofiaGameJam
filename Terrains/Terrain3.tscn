@@ -39,6 +39,7 @@ scale = Vector2( 150.2, 7.5 )
 position = Vector2( 329, 1022 )
 scale = Vector2( 0.833333, 1 )
 frames = SubResource( 1 )
+frame = 4
 playing = true
 
 [node name="Position2D" parent="." index="4"]
@@ -77,7 +78,7 @@ Speed = 1500
 attackType = "grenade"
 
 [node name="CollisionShape2D" parent="BaseEnemy2/AttackArea" index="0"]
-position = Vector2( -677, -198.5 )
+position = Vector2( -677, -366 )
 
 [node name="BaseEnemy3" parent="." index="10" instance=ExtResource( 12 )]
 position = Vector2( 2167, 289 )

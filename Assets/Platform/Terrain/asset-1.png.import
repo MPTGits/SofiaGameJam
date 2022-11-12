@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/LayerBackground.png-f7d94b329988e03fb083fd820be506f5.stex"
+path="res://.import/asset-1.png-5d5094574ee1e89029a55b55017e813a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Backgrounds/05/LayerBackground.png"
-dest_files=[ "res://.import/LayerBackground.png-f7d94b329988e03fb083fd820be506f5.stex" ]
+source_file="res://Assets/Platform/Terrain/asset-1.png"
+dest_files=[ "res://.import/asset-1.png-5d5094574ee1e89029a55b55017e813a.stex" ]
 
 [params]
 
