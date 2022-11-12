@@ -14,7 +14,7 @@ texture = ExtResource( 4 )
 expand = true
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
-motion_scale = Vector2( 0.7, 1 )
+motion_scale = Vector2( 0.2, 1 )
 motion_mirroring = Vector2( 1920, 0 )
 
 [node name="Background" type="TextureRect" parent="ParallaxLayer2"]
@@ -24,7 +24,7 @@ texture = ExtResource( 2 )
 expand = true
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
-motion_scale = Vector2( 0.8, 1 )
+motion_scale = Vector2( 0.3, 1 )
 motion_mirroring = Vector2( 1920, 0 )
 
 [node name="Background" type="TextureRect" parent="ParallaxLayer3"]
