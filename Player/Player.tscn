@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Characters/01/Idle/1.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Characters/character-boiiiii.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Characters/Jetpack Smoke/3.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Characters/Jetpack Smoke/2.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Characters/Jetpack Smoke/4.png" type="Texture" id=5]
@@ -20,6 +20,7 @@ animations = [ {
 } ]
 
 [node name="Player" type="KinematicBody2D" groups=["player"]]
+scale = Vector2( 1.2, 1.2 )
 z_index = 5
 collision_mask = 8
 script = ExtResource( 1 )
@@ -32,9 +33,10 @@ shape = SubResource( 2 )
 texture = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( -40, 50 )
+position = Vector2( -31.6667, 45 )
 frames = SubResource( 1 )
 animation = "smoke"
+playing = true
 offset = Vector2( 0, 75 )
 
 [node name="PlayerUI" parent="." instance=ExtResource( 7 )]
