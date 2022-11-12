@@ -182,7 +182,7 @@ script = ExtResource( 2 )
 texture = ExtResource( 1 )
 hframes = 12
 vframes = 6
-frame = 7
+frame = 3
 
 [node name="Area2D" type="Area2D" parent="Sprite"]
 position = Vector2( 9.44942, 19.8438 )
