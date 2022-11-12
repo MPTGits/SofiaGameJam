@@ -5,6 +5,7 @@ onready var move_component = $MoveComponenta
 var spriteOffset = 30 # Current sprite is incorectly pivoted, so we use offset to fix that
 export var damage = 10 # This is used for testing purposes. It will be moved to a better place later!
 var isAttacking = false
+var weapon = 'katana'
 
 func _input(event):
 	if event.is_action_pressed("ui_attack") && $AttackTimer.is_stopped():
@@ -14,14 +15,13 @@ func _input(event):
 		
 func _physics_process(delta):
 	if Input.is_action_pressed("ui_left"):
-		$Sprite.flip_h = true
-		$Sprite.offset.x = -40
-		$Sprite/Area2D/Sword.position.x = -72
+		$AnimatedSprite.flip_h = false
+		$AnimatedSprite.offset.x = 0
 		
 	if Input.is_action_pressed("ui_right"):
-		$Sprite.flip_h = false
-		$Sprite.offset.x = 0
-		$Sprite/Area2D/Sword.position.x = 17
+		$AnimatedSprite.flip_h = true
+		$AnimatedSprite.offset.x = -40
+
 		
 func OnAttackAnimationFinish():
 	isAttacking = false;
