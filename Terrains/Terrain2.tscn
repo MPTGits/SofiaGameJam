@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Terrains/BaseTerrain.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Platform/Terrain/platform.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Platform/Terrain/asset-1.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Platform/Buildings/asset-1.png" type="Texture" id=3]
 [ext_resource path="res://Enemies/BaseEnemies.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Terrains/Donut.tscn" type="PackedScene" id=5]
 
