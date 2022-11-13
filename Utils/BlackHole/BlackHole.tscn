@@ -1,0 +1,75 @@
+[gd_scene load_steps=29 format=2]
+
+[ext_resource path="res://Utils/BlackHole/BlackHole.gd" type="Script" id=1]
+[ext_resource path="res://Assets/FX/black_hole/exp03_out_00000.png" type="Texture" id=2]
+[ext_resource path="res://Assets/FX/black_hole/exp03_out_00001.png" type="Texture" id=3]
+[ext_resource path="res://Assets/FX/black_hole/exp03_out_00002.png" type="Texture" id=4]
+[ext_resource path="res://Assets/FX/black_hole/exp03_out_00003.png" type="Texture" id=5]
+[ext_resource path="res://Assets/FX/black_hole/exp03_out_00004.png" type="Texture" id=6]
+[ext_resource path="res://Assets/FX/black_hole/exp03_out_00005.png" type="Texture" id=7]
+[ext_resource path="res://Assets/FX/black_hole/exp03_out_00006.png" type="Texture" id=8]
+[ext_resource path="res://Assets/FX/black_hole/exp03_out_00007.png" type="Texture" id=9]
+[ext_resource path="res://Assets/FX/black_hole/exp03_out_00008.png" type="Texture" id=10]
+[ext_resource path="res://Assets/FX/black_hole/exp03_out_00009.png" type="Texture" id=11]
+[ext_resource path="res://Assets/FX/black_hole/exp03_out_00010.png" type="Texture" id=12]
+[ext_resource path="res://Assets/FX/black_hole/exp03_out_00011.png" type="Texture" id=13]
+[ext_resource path="res://Assets/FX/black_hole/exp03_out_00012.png" type="Texture" id=14]
+[ext_resource path="res://Assets/FX/black_hole/exp03_out_00013.png" type="Texture" id=15]
+[ext_resource path="res://Assets/FX/black_hole/exp03_out_00014.png" type="Texture" id=16]
+[ext_resource path="res://Assets/FX/black_hole/exp03_out_00015.png" type="Texture" id=17]
+[ext_resource path="res://Assets/FX/black_hole/exp03_out_00016.png" type="Texture" id=18]
+[ext_resource path="res://Assets/FX/black_hole/exp03_out_00017.png" type="Texture" id=19]
+[ext_resource path="res://Assets/FX/black_hole/exp03_out_00018.png" type="Texture" id=20]
+[ext_resource path="res://Assets/FX/black_hole/exp03_out_00019.png" type="Texture" id=21]
+[ext_resource path="res://Assets/FX/black_hole/exp03_out_00020.png" type="Texture" id=22]
+[ext_resource path="res://Assets/FX/black_hole/exp03_out_00021.png" type="Texture" id=23]
+[ext_resource path="res://Assets/FX/black_hole/exp03_out_00022.png" type="Texture" id=24]
+[ext_resource path="res://Assets/FX/black_hole/exp03_out_00023.png" type="Texture" id=25]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 150.0
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ) ],
+"loop": true,
+"name": "default",
+"speed": 18.0
+} ]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ) ],
+"loop": true,
+"name": "default",
+"speed": 18.0
+} ]
+
+[node name="BlackHole" type="Node2D"]
+script = ExtResource( 1 )
+min_force = 200.0
+max_force = 200.0
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 1 )
+
+[node name="LifeSpan" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( -2.741, -38 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 2 )
+offset = Vector2( 0, -130 )
+
+[node name="AnimatedSprite2" type="AnimatedSprite" parent="."]
+position = Vector2( 8, 55.238 )
+rotation = 3.14159
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 3 )
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]

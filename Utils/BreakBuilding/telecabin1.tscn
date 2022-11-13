@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Utils/BreakBuilding/BreackableBuilding.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Platform/Break/Cars/tel_1B.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Platform/Break/Cars/tel_1.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Platform/Break/Cars/tel_1A.png" type="Texture" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 50.625, 84.375 )
+
+[node name="Building" instance=ExtResource( 1 )]
+texture = ExtResource( 3 )
+destr1 = ExtResource( 4 )
+destr2 = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" parent="StaticBody2D" index="0"]
+polygon = PoolVector2Array( -66.25, 171.25, -66.25, 336.251, 30.0002, 338.751, 30.0002, 170 )
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2( -36.25, 426.25 )
+scale = Vector2( 1, 1 )
+shape = SubResource( 1 )

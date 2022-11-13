@@ -33,3 +33,5 @@ margin_bottom = 1151.0
 texture_normal = ExtResource( 5 )
 texture_pressed = ExtResource( 7 )
 texture_hover = ExtResource( 6 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
