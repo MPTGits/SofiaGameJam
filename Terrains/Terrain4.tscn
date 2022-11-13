@@ -45,9 +45,11 @@ position = Vector2( 319, 538 )
 
 [node name="BaseEnemy2" parent="." index="8" instance=ExtResource( 6 )]
 position = Vector2( 1441, 359 )
+attackType = "grenade"
 
 [node name="BaseEnemy" parent="." index="9" instance=ExtResource( 6 )]
 position = Vector2( 824, 447 )
+attackType = "grenade"
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." index="10"]
 collision_layer = 0

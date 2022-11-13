@@ -11,6 +11,9 @@ func _ready():
 	$Timer.start()
 	play_again.connect("pressed", self, "load_play")
 	
+func _input(event):
+	if event.is_action_pressed("ui_accept"):
+		load_play()
 	
 func load_play():
 	get_tree().change_scene("res://Levels/TestLevel.tscn")

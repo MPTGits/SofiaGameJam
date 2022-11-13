@@ -1,6 +1,6 @@
 extends Area2D
 
-var Damage = 50
+var Damage = 100
 var enemies = []
 var enemyGroup = null
 
