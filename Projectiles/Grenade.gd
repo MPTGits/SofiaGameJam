@@ -73,8 +73,8 @@ func Boom():
 	set_process(false)
 	
 	for body in enemies:
-		if body.is_in_group(enemyGroup):
-			if is_instance_valid(body):
+		if is_instance_valid(body):
+			if body.is_in_group(enemyGroup):
 				if body.has_method("TakeDamage"):
 					body.TakeDamage(Damage)
 			
@@ -84,3 +84,10 @@ func AnimationFinished():
 	
 func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()
+
+func _on_Grenade_area_entered(area):
+	if enemies.has(area):
+		return
+		
+	enemies.push_back(area)
+	Boom()
