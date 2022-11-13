@@ -21,3 +21,5 @@ script = ExtResource( 5 )
 [node name="Player" parent="Camera2D" instance=ExtResource( 3 )]
 position = Vector2( 238, 534 )
 z_index = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

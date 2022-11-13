@@ -1,6 +1,6 @@
 extends Node2D
 
-
+var CorrectSound = preload("res://Assets/Sound/music1.wav")
 onready var back_to_start:TextureButton = $GoToStart
 onready var play_again:TextureButton = $PlayAgain
 
@@ -16,3 +16,7 @@ func load_start():
 	get_tree().change_scene("res://Levels/StartScreen.tscn")
 	
 
+func _process(delta):
+	if !$AudioStreamPlayer2D.is_playing():
+		$AudioStreamPlayer2D.stream = CorrectSound
+		$AudioStreamPlayer2D.play()

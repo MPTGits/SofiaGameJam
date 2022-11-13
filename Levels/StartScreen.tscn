@@ -21,3 +21,5 @@ margin_bottom = 1194.0
 texture_normal = ExtResource( 5 )
 texture_pressed = ExtResource( 4 )
 texture_hover = ExtResource( 2 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
