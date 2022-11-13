@@ -1,11 +1,14 @@
 extends Node2D
 
 var CorrectSound = preload("res://Assets/Sound/music1.wav")
+var start_screen = preload("res://Assets/Backgrounds/StartScreen.png")
 onready var play_again:TextureButton = $Play
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$Play.visible = false
+	$Timer.start()
 	play_again.connect("pressed", self, "load_play")
 	
 	
@@ -20,3 +23,9 @@ func _process(delta):
 	
 
 
+
+
+func _on_Timer_timeout():
+	print("zaredih")
+	$Background.texture = start_screen
+	$Play.visible = true
