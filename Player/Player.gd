@@ -48,6 +48,9 @@ func HandleSmokeAnim():
 func TakeDamage(damage):
 	$PlayerUI.HealthBar.TakeDamage(damage)
 
+func TakeBoost(boost):
+	$PlayerUI.EnergyBar.TakeBoost(boost)
+
 func _input(event):
 	if event.is_action_pressed("ui_attack"):
 		var grenade = GRENADE.instance()
