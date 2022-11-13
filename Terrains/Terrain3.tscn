@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Terrains/BaseTerrain.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Platform/Terrain/platform.png" type="Texture" id=2]
@@ -10,6 +10,13 @@
 [ext_resource path="res://Assets/Platform/Terrain/adv_1.png" type="Texture" id=8]
 [ext_resource path="res://Utils/BreakBuilding/telecabin1.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Utils/BreakBuilding/Building8.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Terrains/Donut.tscn" type="PackedScene" id=11]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 1173, 10 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 955, 12.5 )
 
 [node name="Terrain3" instance=ExtResource( 1 )]
 __meta__ = {
@@ -57,7 +64,7 @@ position = Vector2( 1319, 534 )
 position = Vector2( 1787, 418 )
 
 [node name="SheepEnemy2" parent="." index="10" instance=ExtResource( 7 )]
-position = Vector2( 887, 769 )
+position = Vector2( 832, 696 )
 
 [node name="Building3" parent="." index="11" instance=ExtResource( 9 )]
 position = Vector2( 560, 432 )
@@ -67,10 +74,15 @@ scale = Vector2( 1, 1 )
 collision_layer = 0
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" index="0"]
-position = Vector2( 1204, 933 )
+position = Vector2( 1169, 964 )
+shape = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="1"]
-position = Vector2( 1193.5, 0 )
+position = Vector2( 958, 2.5 )
+shape = SubResource( 2 )
 
 [node name="Node2D" parent="." index="13" instance=ExtResource( 5 )]
 position = Vector2( 1107, 513 )
+
+[node name="Donut" parent="." index="14" instance=ExtResource( 11 )]
+position = Vector2( -74, -42 )
