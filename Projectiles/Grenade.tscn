@@ -26,7 +26,7 @@ animations = [ {
 } ]
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 34.7851
+radius = 28.1603
 
 [node name="Grenade" type="Area2D"]
 collision_layer = 0
@@ -38,11 +38,12 @@ frames = SubResource( 1 )
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 6 )
 shape = SubResource( 2 )
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
-position = Vector2( 0.500001, 0.999999 )
-scale = Vector2( 2.65, 3 )
+position = Vector2( 3.57628e-07, 2.5 )
+scale = Vector2( 2.8, 3.15 )
 
 [connection signal="area_entered" from="." to="." method="_on_Grenade_area_entered"]
 [connection signal="body_entered" from="." to="." method="OnBodyEntered"]
