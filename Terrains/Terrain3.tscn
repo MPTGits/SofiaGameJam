@@ -1,18 +1,14 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Terrains/BaseTerrain.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Platform/Terrain/platform.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Platform/Terrain/vodkaa.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Platform/Buildings/asset-2.png" type="Texture" id=4]
-[ext_resource path="res://Enemies/BaseEnemies.tscn" type="PackedScene" id=12]
-
-[sub_resource type="SpriteFrames" id=1]
-animations = [ {
-"frames": [ null, null, null, null, null, null ],
-"loop": true,
-"name": "default",
-"speed": 5.0
-} ]
+[ext_resource path="res://Assets/Platform/Terrain/adv_3.png" type="Texture" id=3]
+[ext_resource path="res://Utils/BreakBuilding/Car1.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Utils/BreakBuilding/Building8.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Utils/BreakBuilding/Building7.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Enemies/SheepEnemy.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Assets/Platform/Terrain/adv_1.png" type="Texture" id=8]
+[ext_resource path="res://Utils/BreakBuilding/telecabin1.tscn" type="PackedScene" id=9]
 
 [node name="Terrain3" instance=ExtResource( 1 )]
 __meta__ = {
@@ -21,46 +17,47 @@ __meta__ = {
 
 [node name="TextureRect" parent="." index="0"]
 margin_top = 940.0
-margin_right = 2346.0
+margin_right = 2350.0
 margin_bottom = 1096.0
 texture = ExtResource( 2 )
 
 [node name="CreateNextScene" parent="." index="1"]
-position = Vector2( 2144, 945 )
-scale = Vector2( 0.949999, 14.125 )
+position = Vector2( 2144, 1018.13 )
+scale = Vector2( 0.949999, 6.8125 )
 
 [node name="DeleteTerrain" parent="." index="2"]
-position = Vector2( 1172, 1023 )
+position = Vector2( 1171.99, 1023 )
 scale = Vector2( 117.2, 7.5 )
 
-[node name="LeftWater" type="AnimatedSprite" parent="." index="3"]
-position = Vector2( 329, 1022 )
-scale = Vector2( 0.833333, 1 )
-frames = SubResource( 1 )
-playing = true
+[node name="Position2D" parent="." index="3"]
+position = Vector2( 2349, 1010 )
 
-[node name="Position2D" parent="." index="4"]
-position = Vector2( 2354, 1008 )
+[node name="Adv1" type="Sprite" parent="." index="4"]
+position = Vector2( 78, 603 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 8 )
 
-[node name="BaseEnemy3" parent="." index="5" instance=ExtResource( 12 )]
-position = Vector2( 1280, 360 )
-Speed = 1200
-attackType = "grenade"
-
-[node name="AttackArea" parent="BaseEnemy3" index="2"]
-position = Vector2( -729, -45 )
-
-[node name="CollisionShape2D" parent="BaseEnemy3/AttackArea" index="0"]
-position = Vector2( -311, 35 )
-
-[node name="Vodkaa" type="Sprite" parent="." index="6"]
-position = Vector2( 415, 534 )
-scale = Vector2( 0.8, 0.8 )
+[node name="Adv3" type="Sprite" parent="." index="5"]
+position = Vector2( 1434, 607 )
+scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 3 )
 
-[node name="Asset-2" type="Sprite" parent="." index="7"]
-position = Vector2( 1435, 527 )
-scale = Vector2( 0.8, 0.8 )
-texture = ExtResource( 4 )
+[node name="Building" parent="." index="6" instance=ExtResource( 5 )]
+position = Vector2( 1811, 530 )
 
-[editable path="BaseEnemy3"]
+[node name="Car1" parent="." index="7" instance=ExtResource( 4 )]
+position = Vector2( 292, 614 )
+scale = Vector2( 0.64, 0.64 )
+
+[node name="Building2" parent="." index="8" instance=ExtResource( 6 )]
+position = Vector2( 1319, 534 )
+
+[node name="SheepEnemy" parent="." index="9" instance=ExtResource( 7 )]
+position = Vector2( 1787, 418 )
+
+[node name="SheepEnemy2" parent="." index="10" instance=ExtResource( 7 )]
+position = Vector2( 889, 769 )
+
+[node name="Building3" parent="." index="11" instance=ExtResource( 9 )]
+position = Vector2( 560, 432 )
+scale = Vector2( 1, 1 )

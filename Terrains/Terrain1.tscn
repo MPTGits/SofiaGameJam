@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Terrains/BaseTerrain.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Platform/Buildings/asset-3.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Assets/Platform/Terrain/platform.png" type="Texture" id=5]
 [ext_resource path="res://Terrains/Bilbord.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Terrains/AnimatedSprite.gd" type="Script" id=7]
+[ext_resource path="res://Utils/BreakBuilding/Car2.tscn" type="PackedScene" id=8]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -64,3 +65,6 @@ script = ExtResource( 7 )
 
 [node name="Building2" parent="." index="8" instance=ExtResource( 3 )]
 position = Vector2( 1762, 522 )
+
+[node name="Building" parent="." index="9" instance=ExtResource( 8 )]
+position = Vector2( 299, 540 )
