@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Terrains/BaseTerrain.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Platform/Terrain/platform.png" type="Texture" id=2]
@@ -7,6 +7,9 @@
 [ext_resource path="res://Utils/BreakBuilding/Building2.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/Platform/Terrain/adv_2.png" type="Texture" id=6]
 [ext_resource path="res://Utils/BreakBuilding/telecabin1.tscn" type="PackedScene" id=7]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 1226, 10 )
 
 [node name="Terrain2" instance=ExtResource( 1 )]
 
@@ -45,7 +48,19 @@ position = Vector2( 1552, 538 )
 
 [node name="SheepEnemy" parent="." index="7" instance=ExtResource( 4 )]
 position = Vector2( 944, 244 )
+attackType = "grenade"
 
 [node name="Building3" parent="." index="8" instance=ExtResource( 7 )]
 position = Vector2( 872, 431 )
 scale = Vector2( 1, 1 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." index="9"]
+collision_layer = 0
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" index="0"]
+position = Vector2( 1224, 942 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="1"]
+position = Vector2( 1216, 0 )
+shape = SubResource( 1 )
