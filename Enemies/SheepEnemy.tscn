@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Enemies/BaseEnemies.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Enemy Sprite/EnemySheep/shEEP.png" type="Texture" id=2]
+[ext_resource path="res://Enemies/SheepEnemy.gd" type="Script" id=3]
+
+[node name="SheepEnemy" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+
+[node name="Sprite" parent="." index="1"]
+position = Vector2( -179, -65 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" parent="AttackArea" index="0"]
+position = Vector2( -996, -2 )
+
+[node name="Position2D" parent="." index="4"]
+position = Vector2( -23, -40 )

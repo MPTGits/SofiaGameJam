@@ -19,5 +19,4 @@ polygon = PoolVector2Array( -356.251, 322.501, -371.251, -341.251, -56.25, -341.
 
 [node name="CollisionShape2D" parent="Area2D" index="0"]
 position = Vector2( -10, 166.25 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 1 )
