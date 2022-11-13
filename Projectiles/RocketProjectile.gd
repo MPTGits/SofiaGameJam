@@ -3,7 +3,7 @@ extends Area2D
 onready var OnHit = preload("res://Animations/HitAnim.tscn")
 
 var speed = 0
-export var Damage = 20
+export var Damage = 10
 var attackType = ""
 
 func _ready():

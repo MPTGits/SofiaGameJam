@@ -13,3 +13,4 @@ func _on_Area2D_area_entered(area):
 		texture = destr2
 		$Area2D/CollisionShape2D.set_deferred("disabled", true)
 		$StaticBody2D/CollisionPolygon2D.set_deferred("disabled", true)
+		

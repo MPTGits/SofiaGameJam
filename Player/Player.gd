@@ -3,13 +3,15 @@ extends KinematicBody2D
 export(float, 0, 1) var accelaration = 0.08
 export(float, 0, 1) var friction = 0.03
 export(float) var speed = 550.0
-export(float) var gravity = 10.0
+export(float) var gravity = 15.0
 export(String) var moving_direction = ''
 
 onready var GRENADE = preload("res://Projectiles/Grenade.tscn")
 
 var m_velocity = Vector2()
 var m_smokeScaleCoeff = 0.0
+
+var canAttack = true
 
 func _physics_process(delta):
 	var desired_velocity = Vector2.ZERO
@@ -52,10 +54,17 @@ func TakeBoost(boost):
 	$PlayerUI.EnergyBar.TakeBoost(boost)
 
 func _input(event):
-	if event.is_action_pressed("ui_attack"):
+	if event.is_action_pressed("ui_attack") and canAttack:
 		var grenade = GRENADE.instance()
 		grenade.set_as_toplevel(true)
 		get_tree().get_root().add_child(grenade)
 		grenade.Init($WeaponShooting.global_position, false, self, null)
 		
 		Globals.CreateExplosionAnim($WeaponShooting.global_position, "shooting")
+		
+		canAttack = false
+		$Timer.start()
+
+
+func _on_Timer_timeout():
+	canAttack = true

@@ -4,6 +4,7 @@ onready var GRENADE = preload("res://Projectiles/Grenade.tscn")
 onready var BULLET = preload("res://Projectiles/RocketProjectile.tscn")
 
 var enemy = null
+var health = 100
 
 export var Speed = 1000
 export(String, "zigzag", "normal", "grenade") var attackType = "zigzag"
@@ -36,3 +37,8 @@ func _on_Area2D_body_entered(body):
 
 func _on_AttackArea_body_exited(body):
 	enemy = null
+	
+func TakeDamage(damage):
+	health -= damage
+	if health <= 0:
+		queue_free()

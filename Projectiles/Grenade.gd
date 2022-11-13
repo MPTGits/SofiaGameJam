@@ -1,6 +1,6 @@
 extends Area2D
 
-var Damage = 40
+var Damage = 50
 var enemies = []
 var enemyGroup = null
 
@@ -18,6 +18,7 @@ func Init(firstPos, direction, owner, target):
 	$AnimatedSprite.play("default")
 	
 	if owner.is_in_group("enemy"):
+		Damage = 10
 		enemyGroup = "player"
 		
 		set_collision_layer_bit(3, true)
