@@ -29,10 +29,10 @@ func TakeBoost(damage):
 	tween.tween_property($TextureRect, "modulate", Color.white, 0.15)
 	tween.play()
 
-	if currentHealth <= 0:
+	if currentHealth <= 10:
 		currentHealth = 0
 		set_physics_process(false)
-		emit_signal("OnDead")
+		get_tree().change_scene("res://Levels/WinState.tscn")
 		RefreshEnergySprite()
 	
 func RefreshEnergySprite():

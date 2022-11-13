@@ -1,15 +1,15 @@
 extends Control
 
-var healthBarStates = ["res://Assets/User Interface/HealthBar/0.png",
-					"res://Assets/User Interface/HealthBar/1.png",
-					"res://Assets/User Interface/HealthBar/2.png",
-					"res://Assets/User Interface/HealthBar/3.png",
-					"res://Assets/User Interface/HealthBar/4.png",
-					"res://Assets/User Interface/HealthBar/5.png",
-					"res://Assets/User Interface/HealthBar/6.png",
-					"res://Assets/User Interface/HealthBar/7.png",
+var healthBarStates = ["res://Assets/User Interface/HealthBar/9.png",
 					"res://Assets/User Interface/HealthBar/8.png",
-					"res://Assets/User Interface/HealthBar/9.png"]
+					"res://Assets/User Interface/HealthBar/7.png",
+					"res://Assets/User Interface/HealthBar/6.png",
+					"res://Assets/User Interface/HealthBar/5.png",
+					"res://Assets/User Interface/HealthBar/4.png",
+					"res://Assets/User Interface/HealthBar/3.png",
+					"res://Assets/User Interface/HealthBar/2.png",
+					"res://Assets/User Interface/HealthBar/1.png",
+					"res://Assets/User Interface/HealthBar/0.png"]
 
 signal OnDead
 
@@ -32,7 +32,7 @@ func TakeDamage(damage):
 	if currentHealth <= 0:
 		currentHealth = 0
 		set_physics_process(false)
-		emit_signal("OnDead")
+		get_tree().change_scene("res://Levels/LoseState.tscn")
 		RefreshHealthSprite()
 	
 func RefreshHealthSprite():
