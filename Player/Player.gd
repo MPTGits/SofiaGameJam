@@ -4,6 +4,7 @@ export(float, 0, 1) var accelaration = 0.08
 export(float, 0, 1) var friction = 0.03
 export(float) var speed = 550.0
 export(float) var gravity = 10.0
+export(String) var moving_direction = ''
 
 onready var GRENADE = preload("res://Projectiles/Grenade.tscn")
 
@@ -29,6 +30,14 @@ func _physics_process(delta):
 		m_velocity = m_velocity.linear_interpolate(Vector2.ZERO, friction);
 	
 	m_velocity.y += gravity
+	
+	if Input.is_action_pressed("ui_right"):
+		m_velocity.x += speed * accelaration;
+		moving_direction = 'right'
+	
+	if Input.is_action_pressed("ui_left"):
+		m_velocity.x -= speed * accelaration;
+		moving_direction = 'left'
 	
 	move_and_slide(m_velocity, Vector2.UP)
 
