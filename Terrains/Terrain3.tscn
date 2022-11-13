@@ -4,14 +4,12 @@
 [ext_resource path="res://Assets/Platform/Terrain/platform.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Platform/Terrain/adv_3.png" type="Texture" id=3]
 [ext_resource path="res://Utils/BreakBuilding/Car1.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Utils/BreakBuilding/Building8.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Items/BoostItem.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Utils/BreakBuilding/Building7.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Enemies/SheepEnemy.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Assets/Platform/Terrain/adv_1.png" type="Texture" id=8]
 [ext_resource path="res://Utils/BreakBuilding/telecabin1.tscn" type="PackedScene" id=9]
-
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 1203.5, 10 )
+[ext_resource path="res://Utils/BreakBuilding/Building8.tscn" type="PackedScene" id=10]
 
 [node name="Terrain3" instance=ExtResource( 1 )]
 __meta__ = {
@@ -45,7 +43,7 @@ position = Vector2( 1434, 607 )
 scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 3 )
 
-[node name="Building" parent="." index="6" instance=ExtResource( 5 )]
+[node name="Building" parent="." index="6" instance=ExtResource( 10 )]
 position = Vector2( 1811, 530 )
 
 [node name="Car1" parent="." index="7" instance=ExtResource( 4 )]
@@ -70,8 +68,9 @@ collision_layer = 0
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" index="0"]
 position = Vector2( 1204, 933 )
-shape = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="1"]
 position = Vector2( 1193.5, 0 )
-shape = SubResource( 1 )
+
+[node name="Node2D" parent="." index="13" instance=ExtResource( 5 )]
+position = Vector2( 1107, 513 )

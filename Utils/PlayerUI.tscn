@@ -34,7 +34,9 @@ custom_styles/normal = SubResource( 1 )
 
 [node name="EnergyBar" parent="." instance=ExtResource( 3 )]
 unique_name_in_owner = true
-margin_top = -2.0
-margin_bottom = -2.0
+margin_left = 71.0
+margin_top = -1.0
+margin_right = 71.0
+margin_bottom = -1.0
 
 [connection signal="pressed" from="ShopBtn" to="." method="_on_ShopBtn_pressed"]
