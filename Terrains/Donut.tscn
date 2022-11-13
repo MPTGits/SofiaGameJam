@@ -1,8 +1,14 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Assets/Platform/Terrain/donut1.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Platform/Terrain/donut2.png" type="Texture" id=2]
 [ext_resource path="res://Terrains/Donut.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 65.5, 37 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 49, 58.5 )
 
 [node name="Donut" type="Node2D"]
 script = ExtResource( 3 )
@@ -19,3 +25,15 @@ scale = Vector2( 0.5, 0.5 )
 z_index = 200
 texture = ExtResource( 2 )
 offset = Vector2( 0, 700 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( 1108, 383 )
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 9, 0 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( -30, 272.5 )
+shape = SubResource( 2 )

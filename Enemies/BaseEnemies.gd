@@ -8,6 +8,9 @@ var enemy = null
 export var Speed = 1000
 export(String, "zigzag", "normal", "grenade") var attackType = "zigzag"
 
+func _ready():
+	randomize()
+
 func _on_AttackTimer_timeout():
 	if enemy == null:
 		return
@@ -24,6 +27,7 @@ func _on_AttackTimer_timeout():
 		bullet.Init($Position2D.global_position, self, attackType, Speed, false)
 		bullet.attackType = attackType
 	
+	$AttackTimer.wait_time = rand_range(0.7, 1.2)
 	$AttackTimer.start()
 
 func _on_Area2D_body_entered(body):

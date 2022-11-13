@@ -1,8 +1,8 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Terrains/BaseTerrain.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Platform/Buildings/asset-3.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Platform/Buildings/asset-4.png" type="Texture" id=3]
+[ext_resource path="res://Utils/BreakBuilding/Building2.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Enemies/BaseEnemies.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Platform/Terrain/platform.png" type="Texture" id=5]
 [ext_resource path="res://Terrains/Bilbord.tscn" type="PackedScene" id=6]
@@ -21,24 +21,6 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 175, 330.5 )
-
-[sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 131, 81.5 )
-
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 111, 183 )
-
-[sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 1215.5, 15 )
-
-[sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 1471.56, 10 )
-
-[sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 68.25, 55 )
-
 [node name="Terrain1" instance=ExtResource( 1 )]
 
 [node name="Bilbord" parent="." index="0" instance=ExtResource( 6 )]
@@ -47,7 +29,7 @@ scale = Vector2( 0.7, 0.7 )
 
 [node name="TextureRect" parent="." index="1"]
 margin_top = 940.0
-margin_right = 2349.0
+margin_right = 2350.0
 margin_bottom = 1380.0
 texture = ExtResource( 5 )
 
@@ -66,17 +48,12 @@ position = Vector2( 2349, 1015 )
 position = Vector2( 625, 744 )
 attackType = "grenade"
 
-[node name="Sprite" type="Sprite" parent="." index="6"]
-position = Vector2( 1455, 544 )
-scale = Vector2( 0.8, 0.8 )
-texture = ExtResource( 3 )
-
-[node name="Sprite2" type="Sprite" parent="." index="7"]
+[node name="Sprite2" type="Sprite" parent="." index="6"]
 position = Vector2( 644, 543 )
 scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 2 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="8"]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="7"]
 position = Vector2( 317, 557 )
 scale = Vector2( 0.12, 0.12 )
 frames = SubResource( 1 )
@@ -85,28 +62,5 @@ script = ExtResource( 7 )
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="AnimatedSprite" index="0"]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." index="9"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
-position = Vector2( 1374, 621.5 )
-shape = SubResource( 2 )
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" index="1"]
-position = Vector2( 621, 870.5 )
-shape = SubResource( 4 )
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" index="2"]
-position = Vector2( 1658, 770 )
-shape = SubResource( 3 )
-
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D" index="3"]
-position = Vector2( 1197, 953 )
-shape = SubResource( 5 )
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" index="4"]
-position = Vector2( 1186, -3 )
-shape = SubResource( 6 )
-
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D" index="5"]
-position = Vector2( 1313, 235 )
-shape = SubResource( 7 )
+[node name="Building2" parent="." index="8" instance=ExtResource( 3 )]
+position = Vector2( 1762, 522 )
