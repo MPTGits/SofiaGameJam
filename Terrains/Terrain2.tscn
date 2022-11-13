@@ -51,7 +51,6 @@ z_index = 1
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" index="0"]
 position = Vector2( 387, 647 )
 rotation = 1.5708
-scale = Vector2( 1, 1 )
 shape = SubResource( 4 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" index="1"]
