@@ -9,8 +9,8 @@ radius = 375.0
 height = 307.5
 
 [node name="Building" instance=ExtResource( 1 )]
-normal_map = ExtResource( 3 )
 destr1 = ExtResource( 2 )
+destr2 = ExtResource( 3 )
 
 [node name="CollisionPolygon2D" parent="StaticBody2D" index="0"]
 polygon = PoolVector2Array( -355, 328.751, -377.501, -335.001, -67.5, -342.501, -71.25, -598.751, 370.001, -598.751, 376.251, 338.751 )

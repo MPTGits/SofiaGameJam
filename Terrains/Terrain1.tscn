@@ -29,7 +29,7 @@ scale = Vector2( 0.7, 0.7 )
 
 [node name="TextureRect" parent="." index="1"]
 margin_top = 940.0
-margin_right = 2349.0
+margin_right = 2350.0
 margin_bottom = 1380.0
 texture = ExtResource( 5 )
 

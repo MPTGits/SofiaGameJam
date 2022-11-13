@@ -8,7 +8,7 @@ var money = 500
 
 var terrains = [
 	preload("res://Terrains/Terrain1.tscn"),
-#	preload("res://Terrains/Terrain2.tscn"),
+	preload("res://Terrains/Terrain2.tscn"),
 #	preload("res://Terrains/Terrain3.tscn")
 ]
 

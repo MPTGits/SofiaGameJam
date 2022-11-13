@@ -37,7 +37,6 @@ scale = Vector2( 117.2, 7.5 )
 position = Vector2( 329, 1022 )
 scale = Vector2( 0.833333, 1 )
 frames = SubResource( 1 )
-frame = 4
 playing = true
 
 [node name="Position2D" parent="." index="4"]
