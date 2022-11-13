@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Utils/BreakBuilding/BreackableBuilding.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Platform/Break/asset-1-destr_A.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Platform/Break/asset-1-destrB.png" type="Texture" id=3]
+
+[node name="Building1" instance=ExtResource( 1 )]
+destr1 = ExtResource( 2 )
+destr2 = ExtResource( 3 )
+
+[node name="CollisionPolygon2D" parent="StaticBody2D" index="0"]
+polygon = PoolVector2Array( -355, 327.501, -368.751, -333.751, -63.75, -345.001, -73.75, -591.251, 371.251, -591.251, 368.751, 327.501 )
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+scale = Vector2( 1, 1 )

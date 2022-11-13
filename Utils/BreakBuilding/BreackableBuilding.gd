@@ -1,7 +1,7 @@
 extends Sprite
 
-onready var destr1 = preload("res://Assets/Platform/Buildings/asset-1-destr_A.png")
-onready var destr2 = preload("res://Assets/Platform/Buildings/asset-1-destrB.png")
+export(Texture) var destr1
+export(Texture) var destr2
 
 var numOfHits = 0
 
@@ -12,3 +12,4 @@ func _on_Area2D_area_entered(area):
 	elif numOfHits == 2:
 		texture = destr2
 		$Area2D/CollisionShape2D.set_deferred("disabled", true)
+		$StaticBody2D/CollisionPolygon2D.set_deferred("disabled", true)

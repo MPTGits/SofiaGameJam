@@ -36,6 +36,7 @@ texture = ExtResource( 2 )
 position = Vector2( -31.6667, 45 )
 frames = SubResource( 1 )
 animation = "smoke"
+frame = 3
 playing = true
 offset = Vector2( 0, 75 )
 
