@@ -14,10 +14,10 @@ var positionC := Vector2()
 var air_duration = 0.8
 var air_elapsed_time = 0.0
 
-func Init(firstPos, direction, owner, target):
+func Init(grenadeInfo: ProjectileInfo):
 	$AnimatedSprite.play("default")
 	
-	if owner.is_in_group("enemy"):
+	if grenadeInfo.projectileOwner.is_in_group("enemy"):
 		Damage = 10
 		enemyGroup = "player"
 		
@@ -25,23 +25,23 @@ func Init(firstPos, direction, owner, target):
 		set_collision_mask_bit(0, true)
 		set_collision_mask_bit(4, true)
 		
-		positionA = firstPos
-		positionB = Vector2(firstPos.x - 300, firstPos.y - 400)
-		positionC = Vector2(target.global_position.x + fallLenght, target.global_position.y)
+		positionA = grenadeInfo.position
+		positionB = Vector2(grenadeInfo.position.x - 300, grenadeInfo.position.y - 400)
+		positionC = Vector2(grenadeInfo.target.global_position.x + fallLenght, grenadeInfo.target.global_position.y)
 		
 		positionB.x += -250
 		positionC.x += -400
 		
-	elif owner.is_in_group("player"):
+	elif grenadeInfo.projectileOwner.is_in_group("player"):
 		enemyGroup = "enemy"
 		
 		set_collision_layer_bit(2, true)
 		set_collision_mask_bit(1, true)
 		set_collision_mask_bit(3, true)
 
-		positionA = firstPos
-		positionB = Vector2(firstPos.x + initialLenght, firstPos.y - initialLenght)
-		positionC = Vector2(firstPos.x + fallLenght, firstPos.y)
+		positionA = grenadeInfo.position
+		positionB = Vector2(grenadeInfo.position.x + initialLenght, grenadeInfo.position.y - initialLenght)
+		positionC = Vector2(grenadeInfo.position.x + fallLenght, grenadeInfo.position.y)
 		
 		positionB.x += 125
 		positionC.x += 250

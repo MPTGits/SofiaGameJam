@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Levels/StartScreen.gd" type="Script" id=1]
 [ext_resource path="res://Assets/User Interface/buttons/Play_hover.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Backgrounds/loading.png" type="Texture" id=3]
 [ext_resource path="res://Assets/User Interface/buttons/Play_pressed.png" type="Texture" id=4]
 [ext_resource path="res://Assets/User Interface/buttons/Play_normal.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Sound/music1.wav" type="AudioStream" id=6]
 
 [node name="StartScreen" type="Node2D"]
 script = ExtResource( 1 )
@@ -14,6 +15,7 @@ texture = ExtResource( 3 )
 centered = false
 
 [node name="Play" type="TextureButton" parent="."]
+visible = false
 margin_left = 554.0
 margin_top = 714.0
 margin_right = 1314.0
@@ -22,9 +24,20 @@ texture_normal = ExtResource( 5 )
 texture_pressed = ExtResource( 4 )
 texture_hover = ExtResource( 2 )
 
+[node name="Exit" type="Button" parent="."]
+visible = false
+margin_left = 777.0
+margin_top = 49.0
+margin_right = 1065.0
+margin_bottom = 148.0
+text = "EXIT"
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 0.2
 
+[connection signal="pressed" from="Play" to="." method="_on_Play_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_Exit_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

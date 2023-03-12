@@ -8,6 +8,16 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Reference",
+"class": "ProjectileInfo",
+"language": "GDScript",
+"path": "res://Utils/ProjectileInfo.gd"
+} ]
+_global_script_class_icons={
+"ProjectileInfo": ""
+}
+
 [application]
 
 config/name="JetPackHero"
@@ -31,6 +41,8 @@ window/stretch/aspect="keep"
 
 keyboard=false
 action=false
+warning=false
+debug=false
 
 [gui]
 

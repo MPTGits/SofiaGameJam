@@ -4,7 +4,6 @@ export(float, 0, 1) var accelaration = 0.08
 export(float, 0, 1) var friction = 0.03
 export(float) var speed = 550.0
 export(float) var gravity = 15.0
-export(String) var moving_direction = ''
 
 onready var GRENADE = preload("res://Projectiles/Grenade.tscn")
 
@@ -35,11 +34,9 @@ func _physics_process(delta):
 	
 	if Input.is_action_pressed("ui_right"):
 		m_velocity.x += speed * accelaration;
-		moving_direction = 'right'
 	
 	if Input.is_action_pressed("ui_left"):
 		m_velocity.x -= speed * accelaration;
-		moving_direction = 'left'
 	
 	move_and_slide(m_velocity, Vector2.UP)
 
@@ -50,15 +47,16 @@ func HandleSmokeAnim():
 func TakeDamage(damage):
 	$PlayerUI.HealthBar.TakeDamage(damage)
 
-func TakeBoost(boost):
-	$PlayerUI.EnergyBar.TakeBoost(boost)
-
 func _input(event):
 	if event.is_action_pressed("ui_attack") and canAttack:
+		var attackInfo : ProjectileInfo = ProjectileInfo.new()
+		attackInfo.projectileOwner = self
+		attackInfo.position = $WeaponShooting.global_position
+		attackInfo.flippedSprite = $Body.flip_h
+		
 		var grenade = GRENADE.instance()
-		grenade.set_as_toplevel(true)
 		get_tree().get_root().add_child(grenade)
-		grenade.Init($WeaponShooting.global_position, false, self, null)
+		grenade.Init(attackInfo)
 		
 		Globals.CreateExplosionAnim($WeaponShooting.global_position, "shooting")
 		

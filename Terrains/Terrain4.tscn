@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Terrains/BaseTerrain.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Platform/Terrain/platform.png" type="Texture" id=2]
@@ -7,7 +7,6 @@
 [ext_resource path="res://Utils/BreakBuilding/Building7.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Enemies/BaseEnemies.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Utils/BreakBuilding/Car3.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Items/BoostItem.tscn" type="PackedScene" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 1206, 10 )
@@ -61,9 +60,3 @@ shape = SubResource( 1 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="1"]
 position = Vector2( 1196, 0 )
 shape = SubResource( 1 )
-
-[node name="Node2D" parent="." index="11" instance=ExtResource( 8 )]
-position = Vector2( 489, 380 )
-
-[node name="Node2D2" parent="." index="12" instance=ExtResource( 8 )]
-position = Vector2( 1223, 199 )

@@ -1,42 +1,40 @@
 extends KinematicBody2D
 
-onready var GRENADE = preload("res://Projectiles/Grenade.tscn")
-onready var BULLET = preload("res://Projectiles/RocketProjectile.tscn")
-
-var enemy = null
+var player = null
 var health = 100
+var attackInfo : ProjectileInfo = ProjectileInfo.new()
 
-export var Speed = 1000
-export(String, "zigzag", "normal", "grenade") var attackType = "zigzag"
+export(String, "grenade", "zigzag", "normal") var attackType = "zigzag"
+var attackProjectiles = { "grenade": preload("res://Projectiles/Grenade.tscn"),
+						  "zigzag": preload("res://Projectiles/RocketProjectile.tscn"),
+						  "normal": preload("res://Projectiles/RocketProjectile.tscn") }
 
 func _ready():
 	randomize()
-
+	attackInfo.projectileOwner = self
+	attackInfo.attackType = attackType
+	attackInfo.flippedSprite = $Sprite.flip_h
+	attackInfo.position = $Position2D.global_position
+ 
 func _on_AttackTimer_timeout():
-	if enemy == null:
+	if player == null:
 		return
 		
-	if attackType == "grenade":
-		var grenade = GRENADE.instance()
-		grenade.set_as_toplevel(true)
-		grenade.z_index = 10
-		get_tree().get_root().add_child(grenade)
-		grenade.Init($Position2D.global_position, true, self, enemy)
-	else:
-		var bullet = BULLET.instance()
-		get_tree().get_root().add_child(bullet)
-		bullet.Init($Position2D.global_position, self, attackType, Speed, false)
-		bullet.attackType = attackType
+	attackInfo.target = player
+	
+	var projectile = attackProjectiles.get(attackType).instance()
+	get_tree().get_root().add_child(projectile)
+	projectile.Init(attackInfo)
 	
 	$AttackTimer.wait_time = rand_range(0.7, 1.2)
 	$AttackTimer.start()
 
 func _on_Area2D_body_entered(body):
 	$AttackTimer.start()
-	enemy = body
+	player = body
 
-func _on_AttackArea_body_exited(body):
-	enemy = null
+func _on_AttackArea_body_exited(_body):
+	player = null
 	
 func TakeDamage(damage):
 	health -= damage

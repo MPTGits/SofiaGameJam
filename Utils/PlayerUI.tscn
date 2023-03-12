@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Utils/PlayerUI.gd" type="Script" id=1]
 [ext_resource path="res://Utils/HealthBar/HealthComp.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Utils/EnergyBar/EnergyBar.tscn" type="PackedScene" id=3]
 
 [sub_resource type="StyleBoxTexture" id=1]
 region_rect = Rect2( 0, 0, 112, 112 )
@@ -31,12 +30,5 @@ margin_bottom = 129.0
 custom_styles/hover = SubResource( 1 )
 custom_styles/pressed = SubResource( 2 )
 custom_styles/normal = SubResource( 1 )
-
-[node name="EnergyBar" parent="." instance=ExtResource( 3 )]
-unique_name_in_owner = true
-margin_left = 71.0
-margin_top = -1.0
-margin_right = 71.0
-margin_bottom = -1.0
 
 [connection signal="pressed" from="ShopBtn" to="." method="_on_ShopBtn_pressed"]

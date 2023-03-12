@@ -6,7 +6,6 @@
 [ext_resource path="res://Assets/User Interface/Tittle.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Fonts/Jupiter-Pro.ttf" type="DynamicFontData" id=5]
 
-
 [sub_resource type="DynamicFont" id=1]
 size = 30
 outline_size = 1
